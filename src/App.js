@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { DatePicker } from "antd";
 
 import "./App.css";
