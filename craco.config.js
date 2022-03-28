@@ -1,10 +1,16 @@
 const path = require('path');
 const CracoLessPlugin = require('craco-less');
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// lodash webpack
+// const LodashWebpackPlugin = require('lodash-webpack-plugin');
+
+const analyzerMode = process.env.REACT_APP_INTERACTIVE_ANALYZE ? 'server' : 'json';
+
 module.exports = {
   plugins: [
     {
-      plugin: CracoLessPlugin,
+      plugin: [CracoLessPlugin],
       options: {
         lessLoaderOptions: {
           lessOptions: {
@@ -18,6 +24,13 @@ module.exports = {
     alias: {
       '@': path.resolve('src'),
     },
+    plugins: [
+      new BundleAnalyzerPlugin({ analyzerMode }),
+      // new LodashWebpackPlugin({
+      //   collections: true,
+      //   paths: true,
+      // }),
+    ],
   },
   babel: {
     presets: ['@babel/preset-react'],
