@@ -1,5 +1,8 @@
 {
   "parser": "@babel/eslint-parser",
+  "babelOptions": {
+    "presets": ["@babel/preset-react"]
+  },
   "extends": ["prettier"],
   "plugins": ["react-hooks", "prettier"],
   "rules": {
