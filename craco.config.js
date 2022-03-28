@@ -10,7 +10,7 @@ const analyzerMode = process.env.REACT_APP_INTERACTIVE_ANALYZE ? 'server' : 'jso
 module.exports = {
   plugins: [
     {
-      plugin: [CracoLessPlugin],
+      plugin: CracoLessPlugin,
       options: {
         lessLoaderOptions: {
           lessOptions: {
