@@ -15,7 +15,6 @@ module.exports = {
     },
   ],
   webpack: {
-    // 别名
     alias: {
       '@': path.resolve('src'),
     },
@@ -23,8 +22,18 @@ module.exports = {
   babel: {
     presets: ['@babel/preset-react'],
     plugins: [
-      ['@babel/plugin-proposal-decorators', { legacy: true }], //装饰器
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
     ],
+  },
+  eslint: {
+    parser: '@babel/eslint-parser',
+    extends: ['prettier'],
+    plugins: ['react-hooks', 'prettier'],
+    rules: {
+      'prettier/prettier': 'warn',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
   },
 };
