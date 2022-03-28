@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import './App.css';
 
 function App() {
+  console.log(BASE_HOST);
   return (
     <div className="app">
       <div>

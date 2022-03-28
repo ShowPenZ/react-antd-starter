@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CracoLessPlugin = require('craco-less');
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -30,6 +31,10 @@ module.exports = {
       //   collections: true,
       //   paths: true,
       // }),
+      new webpack.DefinePlugin({
+        // Definitions  global variable
+        BASE_HOST: '123',
+      }),
     ],
   },
   babel: {
@@ -38,15 +43,5 @@ module.exports = {
       ['@babel/plugin-proposal-decorators', { legacy: true }],
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
     ],
-  },
-  eslint: {
-    parser: '@babel/eslint-parser',
-    extends: ['prettier'],
-    plugins: ['react-hooks', 'prettier'],
-    rules: {
-      'prettier/prettier': 'warn',
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-    },
   },
 };
